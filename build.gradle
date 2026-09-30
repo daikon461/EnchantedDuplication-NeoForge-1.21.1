@@ -13,6 +13,12 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 neoForge {
     version = project.neo_version
 
+    runs {
+        configureEach { logLevel = org.slf4j.event.Level.DEBUG }
+        client { client() }
+        server { server() }
+    }
+
     mods {
         "${project.mod_id}" {
             sourceSet sourceSets.main
@@ -21,13 +27,6 @@ neoForge {
 }
 
 dependencies { }
-
-runs {
-    configureEach { logLevel = org.slf4j.event.Level.DEBUG }
-    client { client() }
-    server { server() }
-}
-
 sourceSets.main.resources.srcDir 'src/generated/resources'
 
 processResources {
