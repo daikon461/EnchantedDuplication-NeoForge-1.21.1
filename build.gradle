@@ -37,4 +37,3 @@ processResources {
 
 jar { manifest { attributes(['Specification-Title': project.mod_name, 'Specification-Vendor': project.mod_authors, 'Specification-Version': '1', 'Implementation-Title': project.name, 'Implementation-Version': project.version]) } }
 
-publishing { publications { mavenJava(MavenPublication) { from components.java } } repositories { maven { url = layout.buildDirectory.dir('repo') } } }
