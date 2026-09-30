@@ -1,0 +1,41 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'net.neoforged.moddev' version '2.0.147'
+}
+
+version = project.mod_version
+group = 'com.enchantedduplication'
+base { archivesName = 'EnchantedDuplication-NeoForge-1.21.1' }
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+neoForge {
+    version = project.neo_version
+
+    mods {
+        "${project.mod_id}" {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+dependencies { }
+
+runs {
+    configureEach { logLevel = org.slf4j.event.Level.DEBUG }
+    client { client() }
+    server { server() }
+}
+
+sourceSets.main.resources.srcDir 'src/generated/resources'
+
+processResources {
+    var props = [version: project.mod_version, minecraft_version: project.minecraft_version, neo_version: project.neo_version]
+    inputs.properties props
+    filesMatching('META-INF/neoforge.mods.toml') { expand props }
+}
+
+jar { manifest { attributes(['Specification-Title': project.mod_name, 'Specification-Vendor': project.mod_authors, 'Specification-Version': '1', 'Implementation-Title': project.name, 'Implementation-Version': project.version]) } }
+
+publishing { publications { mavenJava(MavenPublication) { from components.java } } repositories { maven { url = layout.buildDirectory.dir('repo') } } }

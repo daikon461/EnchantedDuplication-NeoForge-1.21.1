@@ -1,0 +1,5 @@
+{
+  "parent": "enchanted_duplication:custom/rewriting_table",
+  "textures": {"all":"enchanted_duplication:block/rewriting_table","particle":"enchanted_duplication:block/rewriting_table","0":"enchanted_duplication:block/rewriting_table"},
+  "render_type": "cutout"
+}

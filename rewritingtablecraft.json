@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [" 12", "345", "678"],
+  "key": {
+    "1": {"item":"minecraft:netherite_ingot"}, "2":{"item":"minecraft:feather"},
+    "3":{"item":"minecraft:enchanted_book"}, "4":{"item":"minecraft:ink_sac"},
+    "5":{"tag":"minecraft:planks"}, "6":{"tag":"minecraft:planks"},
+    "7":{"item":"minecraft:lapis_block"}, "8":{"tag":"minecraft:planks"}
+  },
+  "result": {"id":"enchanted_duplication:rewriting_table", "count":1}
+}
